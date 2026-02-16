@@ -1,0 +1,80 @@
+{
+  "project": "Skin Cancer Detection System",
+  "version": "1.0.0",
+  "description": "AI-powered dermatology diagnosis tool using deep learning",
+  "author": "AI System",
+  "license": "Educational Use Only",
+  
+  "backend": {
+    "framework": "Flask",
+    "port": 5000,
+    "host": "0.0.0.0",
+    "debug": true,
+    "model": {
+      "name": "skin_cancer_model.h5",
+      "path": "models/skin_cancer_model.h5",
+      "input_size": [224, 224, 3],
+      "output_classes": 9,
+      "architecture": "MobileNetV2 Transfer Learning"
+    },
+    "api_endpoints": {
+      "predict": "/api/predict",
+      "train": "/api/train",
+      "cancer_types": "/api/cancer-types",
+      "health": "/api/health"
+    }
+  },
+  
+  "frontend": {
+    "port": 8000,
+    "type": "HTML5 + CSS3 + JavaScript",
+    "browser_compatibility": ["Chrome", "Firefox", "Safari", "Edge"]
+  },
+  
+  "cancer_types": [
+    "Melanoma",
+    "Nevus",
+    "Basal Cell Carcinoma",
+    "Actinic Keratosis",
+    "Benign Keratosis",
+    "Dermatofibroma",
+    "Vascular Lesion",
+    "Squamous Cell Carcinoma",
+    "Melanosis"
+  ],
+  
+  "training": {
+    "framework": "TensorFlow/Keras",
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "loss_function": "sparse_categorical_crossentropy",
+    "epochs": 20,
+    "batch_size": 16,
+    "validation_split": 0.2,
+    "data_augmentation": true
+  },
+  
+  "file_structure": {
+    "/backend": "Python Flask API server and ML model",
+    "/backend/models": "Trained models and weights",
+    "/backend/uploads": "Temporary storage for uploaded images",
+    "/frontend": "Web interface files"
+  },
+  
+  "dependencies": {
+    "flask": "2.3.3",
+    "flask_cors": "4.0.0",
+    "tensorflow": "2.13.0",
+    "keras": "included_in_tensorflow",
+    "pillow": "10.0.0",
+    "numpy": "1.24.3"
+  },
+  
+  "quick_start": {
+    "step1": "pip install -r requirements.txt",
+    "step2": "python model.py",
+    "step3": "python app.py",
+    "step4": "python -m http.server 8000",
+    "step5": "open http://localhost:8000"
+  }
+}
